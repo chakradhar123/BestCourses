@@ -7,7 +7,9 @@ import MediaCard from "../components/LandingPage/Card";
 import { makeStyles } from '@material-ui/core/styles';
 import Chip from '@material-ui/core/Chip';
 import ReactLoading from 'react-loading';
-//try
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { useTheme } from '@material-ui/core/styles';
+
 const useStyles = makeStyles((theme) => ({
     flex:{
     display:'flex',
@@ -24,6 +26,7 @@ const useStyles = makeStyles((theme) => ({
   
     },
     grid:{
+        flexGrow: 1,
         margin:'1% 0',
         padding:'1% 2%'
     },
@@ -48,6 +51,8 @@ const useStyles = makeStyles((theme) => ({
     }
   }));
 function LandingPage() {
+    const theme = useTheme();
+    const isSmall = useMediaQuery(theme.breakpoints.down('xs'));
     const classes = useStyles();
     const [allCourses, setAllCourses] = useState(null)
     const [currCourses, setCurrCourses] = useState([])
@@ -106,9 +111,9 @@ function LandingPage() {
            }} className={classes.chip} label={category.name} />)}
            
   </Grid>
-           <Grid className={classes.grid} container  wrap='wrap' justify="space-around"  >
+           <Grid className={classes.grid} container justify='center'  spacing={isSmall ? 1 : 5}  >
            {
-               currCourses.map(course=><MediaCard key={course.name} course={course} className={classes.paper}/>)
+               currCourses.map(course=> <Grid item><MediaCard  key={course.name} course={course} className={classes.paper} /></Grid>)
            }
            
            
@@ -116,9 +121,9 @@ function LandingPage() {
             </Grid>
             </div>:<div style={{display:'flex',justifyContent:'center',alignItems:'center'}}><ReactLoading  type={"spin"} color={'#03A9F4'} height={'40px'} width={'40px'} /></div>
            }
-            <footer   class="footer">
-            <div class="footer-text-container">
-                <p class="muted">&copy; BestCourses by Chakradhar Reddy 2021 | All rights reserved</p>
+            <footer className="footer">
+            <div className="footer-text-container">
+                <p className="muted">&copy; BestCourses by Chakradhar Reddy 2021 | All rights reserved</p>
             </div>
         </footer>
 
