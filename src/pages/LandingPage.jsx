@@ -7,6 +7,7 @@ import MediaCard from "../components/LandingPage/Card";
 import { makeStyles } from '@material-ui/core/styles';
 import Chip from '@material-ui/core/Chip';
 import ReactLoading from 'react-loading';
+//try
 const useStyles = makeStyles((theme) => ({
     flex:{
     display:'flex',
