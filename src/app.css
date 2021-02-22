@@ -1,26 +1,26 @@
 html,body{
-height: 100%;
-width:100%;
-margin: 0;
-padding: 0;
-background-color: white;
-font-family: 'PT Sans', sans-serif;
-}
-
-
-.footer {
-   
-
-    width: 100%;
-    
-   
-    background-color: #F6F6F6;
+  height: 100%;
+  width:100%;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  font-family: 'PT Sans', sans-serif;
   }
   
-  .footer-text-container .muted {
+  
+  .footer {
+     
+  
+      width: 100%;
+      
+     
+      background-color: #F6F6F6;
+    }
     
-    font-family: 'PT Sans', sans-serif;
-    color: black;
-    text-align: center;
-    font-size: 15px;
-  }
+    .footer-text-container .muted {
+      
+      font-family: 'PT Sans', sans-serif;
+      color: black;
+      text-align: center;
+      font-size: 15px;
+    }

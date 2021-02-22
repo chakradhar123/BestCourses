@@ -33,6 +33,7 @@ const useStyles = makeStyles((theme) => ({
     upperGrid:{
         margin:'0 0',
         padding:'1% 2%',
+        
      
       
     },
@@ -111,7 +112,10 @@ function LandingPage() {
            }} className={classes.chip} label={category.name} />)}
            
   </Grid>
-           <Grid className={classes.grid} container justify='center'  spacing={isSmall ? 1 : 5}  >
+           <Grid className={classes.grid} container justify='center' style={{
+    margin: 0,
+    width: '100%',
+  }}  spacing={isSmall ? 1 : 5}  >
            {
                currCourses.map(course=> <Grid item><MediaCard  key={course.name} course={course} className={classes.paper} /></Grid>)
            }
