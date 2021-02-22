@@ -6,6 +6,8 @@ padding: 0;
 background-color: white;
 font-family: 'PT Sans', sans-serif;
 }
+
+
 .footer {
    
 
@@ -16,6 +18,7 @@ font-family: 'PT Sans', sans-serif;
   }
   
   .footer-text-container .muted {
+    
     font-family: 'PT Sans', sans-serif;
     color: black;
     text-align: center;

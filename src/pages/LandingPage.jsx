@@ -6,8 +6,15 @@ import {db} from '../db'
 import MediaCard from "../components/LandingPage/Card";
 import { makeStyles } from '@material-ui/core/styles';
 import Chip from '@material-ui/core/Chip';
-import { addCategory } from "../addscript";
+import ReactLoading from 'react-loading';
 const useStyles = makeStyles((theme) => ({
+    flex:{
+    display:'flex',
+    flexDirection:'column',
+    justifyContent:'space-between',
+    minHeight:'100vh'
+
+    },
     root: {
       flexGrow: 1,
     },
@@ -86,11 +93,12 @@ function LandingPage() {
         
     }, [allCourses])
     return (
-        <span>
+        
+        <span className={classes.flex}>
            <AppBar/>
           
-
-           <div  className={classes.root}></div>
+           {allCourses?
+           <div  className={classes.root}>
            <Grid justify='center'  className={classes.upperGrid} container >
            {categories.map((category,index)=><Chip key={index} style={{color:selectedCat===category.name?'white':'#03A9F4',backgroundColor:selectedCat===category.name?'#03A9F4':'white',border:selectedCat===category.name?'none':'2px solid #03A9F4'}} onClick={()=>{
                getCourses(category)
@@ -105,18 +113,17 @@ function LandingPage() {
            
          
             </Grid>
+            </div>:<div style={{display:'flex',justifyContent:'center',alignItems:'center'}}><ReactLoading  type={"spin"} color={'#03A9F4'} height={'40px'} width={'40px'} /></div>
+           }
             <footer   class="footer">
             <div class="footer-text-container">
                 <p class="muted">&copy; BestCourses by Chakradhar Reddy 2021 | All rights reserved</p>
             </div>
         </footer>
+
            </span>
        
     )
 }
 
 export  {LandingPage}
-// onClick={()=>{
-//     console.log('clicked')
-//     addCategory('Mobile App Development')
-// }}
